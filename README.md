@@ -283,3 +283,7 @@ The code was partially written and reviewed by AI coding agents. If you are fund
 
 --------------------------------------------------
 Copyright (C) 2025-2026 Henning Schmiedehausen (@hgschmie), licensed under the MIT license.
+
+## Rotation in fork 1.0.2
+
+R and Shift-R switch input/output on an established belt/container connection while keeping its axis fixed. Unconnected loaders retain free rotation. The internal conveyor follows the selected mode automatically; manual toggling does not rotate the adjacent belt. Automatic placement still matches belt flow. See [rotation regression tests](docs/ROTATION-TESTS.md).
