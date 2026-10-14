@@ -2,7 +2,7 @@
   "name": "miniloader-redux-fork",
   "version": "1.0.2",
   "title": "Miniloader (Redux) Fork",
-  "description": "UPS-friendly 1x1 loaders.",
+  "description": "Factorio 2.0.77 fork with fixed-axis input/output rotation, belt-aware automatic placement, reliable robot-built rotated blueprints, and recovery of existing loaders. Includes underground-belt crash fixes and normal, speed and lane-filter modes.",
   "author": "hgschmie (original); johnmart19 / FactorioMods (fork)",
   "contact": "https://github.com/FactorioMods/factorio-miniloader-redux-fork/issues/",
   "homepage": "https://github.com/FactorioMods/factorio-miniloader-redux-fork",
