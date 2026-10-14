@@ -149,6 +149,7 @@ Constants.settings_keys = {
     'sanitize_loaders',
     'no_power',
     'double_recipes',
+    'affordable_recipes',
     'check_speed_mode',
     'spill_items',
     'fix_blueprint_mods',
