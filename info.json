@@ -1,6 +1,6 @@
 {
   "name": "miniloader-redux-fork",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "title": "Miniloader (Redux) Fork",
   "description": "UPS-friendly 1x1 loaders.",
   "author": "hgschmie (original); johnmart19 / FactorioMods (fork)",
