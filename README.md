@@ -1,3 +1,15 @@
+> **FactorioMods Factorio 2.0 maintenance fork — 1.2.1**
+>
+> Based on hgschmie's MIT-licensed 1.2.0. The upstream main branch targets Factorio 2.1;
+> this branch retains Factorio 2.0.74+ compatibility and fixes the eight-state R/Shift-R rotation cycle.
+> Download the ZIP from this fork's GitHub releases. It replaces `miniloader-redux`;
+> retain the original mod identity so existing saves and blueprints can load it.
+> Multiplayer peers must use the same ZIP. This build is not published under the upstream author's Mod Portal listing.
+>
+> Verified in Factorio 2.0.77: nine variants, four directions, input/output (72 cases),
+> 1,152 rotation actions, adjacent-belt resnapping and actual iron-plate transfer.
+> No loader sprite offsets or footprint changes are included: standard belt adjacency passed.
+> Custom assembler artwork alignment is a separate graphics concern.
 # Miniloader (Redux)
 
 A compact loader that can replace inserters in many situations when loading from/to a belt.

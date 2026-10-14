@@ -1,4 +1,12 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.2.1
+Date: 2026-10-15
+  Bugfixes:
+    - Fix R rotation being trapped on one axis. Cycle through all four facings in both input and output modes.
+    - Make reverse rotation traverse the exact inverse eight-state cycle.
+  Changes:
+    - FactorioMods maintenance build for Factorio 2.0, based on upstream 1.2.0.
+---------------------------------------------------------------------------------------------------
 Version: 1.2.0
 Date: 2026-08-05
   Changes:
