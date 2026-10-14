@@ -205,10 +205,14 @@ end
 ---@param ml_entity miniloader.Data
 ---@param reverse boolean
 function Controller:rotate(ml_entity, reverse)
-    if ml_entity.config.loader_type == (reverse and const.loader_direction.input or const.loader_direction.output) then
-        ml_entity.config.direction = Direction.opposite(ml_entity.config.direction)
-    end
-    ml_entity.config.loader_type = This.Snapping:reverse_loader_type(ml_entity.config.loader_type)
+    -- Walk all eight orientation/mode combinations. Reversing direction by
+    -- 180 degrees here trapped rotation on the original north/south or
+    -- east/west axis. The reverse action must be the exact inverse cycle.
+    local config = ml_entity.config
+    local mode = config.loader_type == const.loader_direction.input and 1 or 0
+    local state = (config.direction / 4 * 2 + mode + (reverse and -1 or 1)) % 8
+    config.direction = math.floor(state / 2) * 4
+    config.loader_type = state % 2 == 1 and const.loader_direction.input or const.loader_direction.output
     self:reconfigure(ml_entity)
 end
 
