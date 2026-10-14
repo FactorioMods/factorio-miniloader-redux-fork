@@ -3,6 +3,7 @@ This, Framework = require('lib.init')()
 local const = require('lib.constants')
 
 data:extend({
+    {type='bool-setting', name=const.settings.affordable_recipes, order='aba', setting_type='startup', default_value=false},
     {
         type = 'bool-setting',
         name = const.settings.loader_snapping,
