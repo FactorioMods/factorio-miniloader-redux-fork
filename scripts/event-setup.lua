@@ -16,6 +16,7 @@ local tools = require('framework.tools')
 local const = require('lib.constants')
 
 local migration = require('scripts.migration')
+local adopt_existing = require('scripts.fork-migration')
 
 --------------------------------------------------------------------------------
 -- entity create / delete
@@ -62,11 +63,12 @@ local function on_entity_created(event)
         pre_build = Framework.Ghost:getPreBuild(player_index)
     end
 
-    -- If there was a pre_build event, the entity was rotated and may
-    -- point in a different direction than the config. remove the
-    -- direction from the config and let the code pick up the entity
-    -- direction later
-    if pre_build and config then
+    -- A rotated/flipped ghost already has its final world direction. Robot
+    -- builds have no same-tick player pre_build event; the serialized direction
+    -- is the original blueprint direction and must not override the ghost.
+    if config and (pre_build or entity_ghost
+        or event.name == defines.events.on_robot_built_entity
+        or event.name == defines.events.script_raised_revive) then
         config.direction = nil
     end
 
@@ -198,6 +200,7 @@ end
 
 local function on_configuration_changed()
     This.MiniLoader:init()
+    adopt_existing()
 
     -- enable recipes if researched
     for _, force in pairs(game.forces) do
@@ -346,6 +349,7 @@ end
 
 local function on_init()
     This.MiniLoader:init()
+    adopt_existing()
     register_events()
 end
 
