@@ -1,4 +1,12 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.2
+Date: 2026-10-15
+  Changes:
+    - R and Shift-R toggle input/output on an established belt or container connection without turning the connection axis.
+    - Preserve free rotation for unconnected loaders; internal conveyors follow the configured input/output flow automatically.
+  Info:
+    - Verified 1152 actual rotation actions across nine variants and 72 layouts, plus 72 real robot placement and item-transfer cases.
+---------------------------------------------------------------------------------------------------
 Version: 1.0.1
 Date: 2026-10-15
   Bugfixes:

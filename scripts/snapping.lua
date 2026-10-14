@@ -192,6 +192,23 @@ local function find_neighbor_entity(ml_entity, direction)
     return #entities > 0 and Is.Valid(entities[1]) and entities[1] or nil
 end
 
+-- Rotation keeps an established belt/container connection on its current axis.
+-- Free-standing loaders retain the full orientation cycle.
+---@param ml_entity miniloader.Data
+---@return defines.direction?
+function Snapping:rotation_connection_direction(ml_entity)
+    local function connected(direction)
+        local front = find_neighbor_entity(ml_entity, direction)
+        if front and const.forward_snapping_types[front.type] then return true end
+        local back = find_neighbor_entity(ml_entity, Direction.opposite(direction))
+        return back and not const.forward_snapping_types[back.type] or false
+    end
+    if connected(ml_entity.config.direction) then return ml_entity.config.direction end
+    for _, direction in ipairs({defines.direction.north, defines.direction.east, defines.direction.south, defines.direction.west}) do
+        if connected(direction) then return direction end
+    end
+end
+
 ---@param ml_entity miniloader.Data
 function Snapping:snapToNeighbor(ml_entity)
     if not Is.Valid(ml_entity.main) then return end

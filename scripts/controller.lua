@@ -205,10 +205,16 @@ end
 ---@param ml_entity miniloader.Data
 ---@param reverse boolean
 function Controller:rotate(ml_entity, reverse)
-    -- Walk all eight orientation/mode combinations. Reversing direction by
-    -- 180 degrees here trapped rotation on the original north/south or
-    -- east/west axis. The reverse action must be the exact inverse cycle.
+    -- Connected loaders toggle mode on their fixed connection axis.
+    -- Unconnected loaders retain the reversible eight-state cycle.
     local config = ml_entity.config
+    local connection_direction = This.Snapping:rotation_connection_direction(ml_entity)
+    if connection_direction then
+        config.direction = connection_direction
+        config.loader_type = This.Snapping:reverse_loader_type(config.loader_type)
+        self:reconfigure(ml_entity)
+        return
+    end
     local mode = config.loader_type == const.loader_direction.input and 1 or 0
     local state = (config.direction / 4 * 2 + mode + (reverse and -1 or 1)) % 8
     config.direction = math.floor(state / 2) * 4
