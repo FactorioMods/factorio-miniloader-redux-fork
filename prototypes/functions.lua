@@ -463,6 +463,18 @@ local function create_recipe(params)
     local double_recipe = Framework.settings:startup_setting(const.settings_names.double_recipes)
 
     local ingredients = util.copy(params.ingredients())
+    if Framework.settings:startup_setting(const.settings_names.affordable_recipes) then
+        local prefix = params.prefix == 'chute' and '' or compute_dash_prefix(params.prefix)
+        local belt = prefix .. 'transport-belt'
+        -- Only substitute when the exact companion-tier belt exists.
+        if data.raw.item[belt] then
+            ingredients = {
+                {type='item', name=belt, amount=1},
+                {type='item', name='inserter', amount=2},
+                {type='item', name='iron-gear-wheel', amount=2},
+            }
+        end
+    end
     if double_recipe then
         for _, ingredient in pairs(ingredients) do
             ingredient.amount = ingredient.amount * 2

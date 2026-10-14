@@ -1,4 +1,12 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.3
+Date: 2026-10-15
+  Features:
+    - Add optional affordable belt-matched recipes: one tier-matched transport belt, two inserters and two gears, without recursive loader upgrades.
+  Changes:
+    - Clarify double-batch crafting, automatic speed conversion and legacy migration setting names.
+    - Retain original recipes by default and existing research unlocks.
+---------------------------------------------------------------------------------------------------
 Version: 1.0.2
 Date: 2026-10-15
   Changes:
