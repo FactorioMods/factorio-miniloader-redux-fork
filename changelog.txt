@@ -2,6 +2,9 @@
 Version: 2.2.4
 Date: ????
   Changes:
+  Bugfixes:
+    - make sure that console commands work on headless servers
+    - Fix control-miniloader-inserters failing on Factorio 2.1 because LuaEntity.active is read-only.
 ---------------------------------------------------------------------------------------------------
 Version: 2.2.3
 Date: 2026-09-15

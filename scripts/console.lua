@@ -102,8 +102,12 @@ local function inspect_miniloaders(data)
         end
     end
 
-    game.print { const:locale('command_inspect_miniloaders_invalid'), invalid.miniloader, invalid.loader, invalid.inserter }
-    game.print { const:locale('command_inspect_miniloaders_removed'), removed.miniloader, removed.loader, removed.inserter, removed.entity }
+    Framework.logger.console(function()
+        return { const:locale('command_inspect_miniloaders_invalid'), invalid.miniloader, invalid.loader, invalid.inserter }
+    end, data)
+    Framework.logger.console(function()
+        return { const:locale('command_inspect_miniloaders_removed'), removed.miniloader, removed.loader, removed.inserter, removed.entity }
+    end, data)
 end
 
 ---@param ml_entity miniloader.Data
@@ -137,9 +141,13 @@ function Console.resyncMiniloaders(data)
         mode = false
     elseif data.parameter == 'speed' then
         mode = true
-        game.print { const:locale('command_resync_miniloaders_speed') }
+        Framework.logger.console(function()
+            return { const:locale('command_resync_miniloaders_speed') }
+        end, data)
     else
-        game.print { const:locale('command_resync_miniloaders_invalid'), data.parameter }
+        Framework.logger.console(function()
+            return { const:locale('command_resync_miniloaders_invalid'), data.parameter }
+        end, data)
         return
     end
 
@@ -169,7 +177,13 @@ function Console.resyncMiniloaders(data)
         end
     end
     if mode then
-        game.print { const:locale('check_speed_mode_result'), enabled_count, ignored_count }
+        Framework.logger.console(function()
+            return { const:locale('check_speed_mode_result'), enabled_count, ignored_count }
+        end, data)
+    elseif data then
+        Framework.logger.console(function()
+            return { const:locale('command_resync_miniloaders_result') }
+        end, data)
     end
 end
 
@@ -178,12 +192,12 @@ local function inserter_control(data)
     local mode
     if data.parameter == 'on' then
         mode = true
-        game.print { const:locale('command_control_miniloader_inserters_on') }
     elseif data.parameter == 'off' then
         mode = false
-        game.print { const:locale('command_control_miniloader_inserters_off') }
     else
-        game.print { const:locale('command_control_miniloader_inserters_invalid'), data.parameter or '' }
+        Framework.logger.console(function()
+            return { const:locale('command_control_miniloader_inserters_invalid'), data.parameter or '' }
+        end, data)
         return
     end
 
@@ -191,12 +205,17 @@ local function inserter_control(data)
         assert(entity.main.valid)
         for _, inserter in pairs(entity.inserters) do
             assert(inserter.valid)
-            inserter.active = mode
+            inserter.disabled_by_script = not mode
         end
     end
+
+    Framework.logger.console(function()
+        return { const:locale(mode and 'command_control_miniloader_inserters_on' or 'command_control_miniloader_inserters_off') }
+    end, data)
 end
 
-local function rebuild_inserter()
+---@param data CustomCommandData
+local function rebuild_inserter(data)
     for entity_id, entity in pairs(This.MiniLoader:entities()) do
         if not (entity.main.valid and entity.loader.valid) then
             This.MiniLoader:destroy(entity_id)
@@ -218,6 +237,9 @@ local function rebuild_inserter()
             end
         end
     end
+    Framework.logger.console(function()
+        return { const:locale('command_rebuild_miniloader_inserters_result') }
+    end, data)
 end
 
 
