@@ -1,6 +1,6 @@
 # Miniloader (Redux) Fork
 
-A Factorio 2.0.77 maintenance fork of [hgschmie's Miniloader (Redux)](https://github.com/hgschmie/factorio-miniloader-redux), based on upstream commit `690af52` (version 2.2.4). The original code and artwork remain credited under the MIT license.
+A Factorio 2.1 maintenance fork of [hgschmie's Miniloader (Redux)](https://github.com/hgschmie/factorio-miniloader-redux), based on upstream commit `6f1461a` (version 2.2.5). The original code and artwork remain credited under the MIT license.
 
 This fork fixes the R/Shift-R rotation cycle and robot construction of rotated or mirrored tagged blueprints. It keeps the upstream item/entity names and supported belt integrations, including Matt's Logistics.
 
@@ -8,7 +8,7 @@ Enable `miniloader-redux-fork` and disable `miniloader-redux`; both mods cannot 
 
 Migration recovers facing, input/output, normal/speed/lane mode, filters, circuit configuration and stack settings from the existing entities. The per-loader spill/discard preference is stored only in upstream's private mod storage and therefore falls back to the fork's startup preference when switching mod identities. The default spills items rather than discarding them.
 
-Validation on Factorio 2.0.77 includes 1,152 rotation actions, 72 direct placement/transfer cases, 72 automatic robot placements, 72 tagged robot placements, 72 native rotated blueprints, 72 mirrored blueprint layouts, and configuration recovery for 807 existing loaders. See [validation details](docs/VALIDATION.md).
+Current validation on Factorio 2.1.23 includes 1,152 connected rotations, eight free rotations, 72 actual robot placement/transfer cases, four 72-case native mirrored blueprint groups, upstream console on/off checks, and a real host/client join/save/restart/rejoin without detected desync. Historical validation on Factorio 2.0.77 includes 1,152 rotation actions, 72 direct placement/transfer cases, 72 automatic robot placements, 72 tagged robot placements, 72 native rotated blueprints, 72 mirrored blueprint layouts, and configuration recovery for 807 existing loaders. See [validation details](docs/VALIDATION.md).
 
 Upstream's historical changelog is preserved in [UPSTREAM-CHANGELOG.txt](docs/UPSTREAM-CHANGELOG.txt). The following documentation describes the retained upstream features.
 

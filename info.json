@@ -1,6 +1,6 @@
 {
   "name": "miniloader-redux-fork",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "title": "Miniloader (Redux) Fork",
   "description": "Factorio 2.1 fork with fixed-axis input/output rotation, belt-aware automatic placement, reliable robot-built rotated blueprints, and recovery of existing loaders. Includes underground-belt crash fixes and normal, speed and lane-filter modes.",
   "author": "hgschmie (original); johnmart19 / FactorioMods (fork)",

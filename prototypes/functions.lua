@@ -304,7 +304,7 @@ local function create_entity(params)
             match_progress_to_activity = true,
             ---@diagnostic disable-next-line: undefined-global
             sound = sound_variations('__base__/sound/inserter-basic', 5, 0.5, { volume_multiplier('main-menu', 2), volume_multiplier('tips-and-tricks', 1.8) }),
-            audible_distance_modifier = 0.3
+
         },
         fast_replaceable_group                = 'mini-loader',
         icon_draw_specification               = {
@@ -401,7 +401,7 @@ local function create_entity(params)
         max_belt_stack_size          = can_stack and 4 or 1,
         adjustable_belt_stack_size   = can_stack or false,
         wait_for_full_stack          = false,
-        loader_respect_insert_limits = true,
+        respect_insert_limits        = true,
 
         ---@diagnostic disable-next-line: undefined-global
         circuit_wire_max_distance    = default_circuit_wire_max_distance,
