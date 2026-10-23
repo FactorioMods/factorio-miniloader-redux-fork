@@ -1,4 +1,12 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.4
+Date: 2026-10-23
+  Compatibility:
+    - Declare Factorio 2.1 compatibility.
+    - Use underground_belt_neighbour for connected underground endpoints.
+    - Recognize the updated Matt's Logistics and Advanced Furnaces forks.
+
+---------------------------------------------------------------------------------------------------
 Version: 1.0.3
 Date: 2026-10-15
   Features:
