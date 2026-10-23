@@ -9,11 +9,11 @@ local const = require('lib.constants')
 local SUPPORTED_MODS = {
     ['base'] = 'base',
     ['space-age'] = 'space_age',
-    ['matts-logistics'] = 'matt',
+    ['matts-logistics-updated'] = 'matt',
     ['Krastorio2'] = 'krastorio',
     ['bobelectronics'] = 'bob_electronics',
     ['boblogistics'] = 'bob',
-    ['Load-Furn-2-SpaceAgeFix'] = 'adv_furnace_2',
+    ['advanced-furnaces-2-updated'] = 'adv_furnace_2',
     ['space-exploration'] = 'space_exploration',
     ['TurboBelt'] = 'turbo_belt',
 }
